@@ -13,6 +13,7 @@ Service area: 10 central Alabama counties — Chilton, Autauga, Elmore, Shelby, 
 | `index.html` | Home |
 | `services.html` | Services |
 | `about.html` | About |
+| `team.html` | Team |
 | `area.html` | Service area |
 | `contact.html` | Contact |
 

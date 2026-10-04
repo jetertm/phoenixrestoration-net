@@ -1,5 +1,5 @@
 /* Phoenix Restoration LLC — multi-page site
-   Mobile-first. Terracotta on warm paper. */
+   Small screens first. Terracotta on warm paper. */
 
 :root {
   --color-bg: #f6f1ea;
@@ -261,7 +261,7 @@ textarea:focus-visible {
 
 .site-nav a[aria-current="page"] { font-weight: 700; }
 
-@media (min-width: 960px) {
+@media (min-width: 1120px) {
   .nav-toggle { display: none; }
 
   .header-phone {
@@ -1061,6 +1061,14 @@ textarea { min-height: 8.5rem; resize: vertical; }
   color: #e0b15a;
 }
 
+.footer-vet {
+  margin: 0.15rem 0 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--color-footer-text);
+}
+
 .footer-tag, .footer-meta, .footer-pay {
   margin: 0.7rem 0 0;
   color: var(--color-footer-muted);
@@ -1101,3 +1109,65 @@ textarea { min-height: 8.5rem; resize: vertical; }
   font-size: 0.8rem;
   color: var(--color-footer-muted);
 }
+
+/* Team cards — add more <li class="team-card"> items as the crew grows */
+.team-grid {
+  display: grid;
+  gap: 0.9rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 700px) {
+  .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.team-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.35rem 1.3rem 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.team-initials {
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin: 0 0 0.9rem;
+  border-radius: 50%;
+  background: var(--color-accent-soft);
+  color: var(--color-accent-ink);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.team-card h2 {
+  margin: 0;
+  font-size: 1.55rem;
+}
+
+.team-role {
+  margin: 0.2rem 0 0.7rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent-ink);
+}
+
+.team-bio {
+  margin: 0 0 0.85rem;
+  color: var(--color-ink-muted);
+}
+
+.team-contact {
+  margin: 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.95rem;
+}
+
+.team-wrap { width: min(100% - 2 * var(--space), 52rem); }
