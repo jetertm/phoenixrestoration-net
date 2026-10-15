@@ -1,0 +1,23 @@
+# Pages project: phoenixrestoration-net
+# Static files live at the repo root. Do not add a build command.
+# Secrets are NOT in this file. See README "Quote form setup".
+name = "phoenixrestoration-net"
+compatibility_date = "2026-10-15"
+pages_build_output_dir = "."
+
+[vars]
+LEAD_FROM_INBOX = "phoenix-leads@agentmail.to"
+LEAD_TO = "eve-phoenix@mail.grokbot.com"
+# Production hostnames only. Do not add localhost or 127.0.0.1.
+TURNSTILE_HOSTNAMES = "phoenixrestoration.net,www.phoenixrestoration.net,phoenixrestoration-net.pages.dev"
+# After the Turnstile widget exists, add the public sitekey here
+# (or as a plaintext Pages variable of the same name):
+# TURNSTILE_SITE_KEY = "0x..."
+
+# AGENTMAIL_API_KEY is a Pages secret. Do not put it in this file.
+
+[observability]
+enabled = true
+
+[observability.traces]
+enabled = true
