@@ -141,6 +141,30 @@ test("turnstile must succeed for the quote action and hostname", async () => {
   assert.equal(replay.status, 403);
 });
 
+test("localhost accepts Cloudflare's testing-key response", async () => {
+  const box = env({
+    TURNSTILE_SECRET: "1x0000000000000000000000000000000AA",
+    TURNSTILE_HOSTNAMES: "127.0.0.1",
+  });
+  const response = await handleQuote(
+    requestFor(quoteForm(), "127.0.0.1"),
+    box,
+    async () =>
+      new Response(
+        JSON.stringify({
+          success: true,
+          hostname: "example.com",
+          "error-codes": [],
+          metadata: { result_with_testing_key: true },
+        }),
+        { status: 200 },
+      ),
+  );
+  assert.equal(response.status, 200);
+  assert.equal(box.sent.length, 1);
+  assert.equal(box.sent[0].subject, "New quote request: Jane Smith - Kitchen - Clanton");
+});
+
 test("testing secrets are refused on the public site", async () => {
   const box = env({ TURNSTILE_SECRET: "1x0000000000000000000000000000000AA" });
   const response = await handleQuote(requestFor(quoteForm()), box, siteverifyOk());

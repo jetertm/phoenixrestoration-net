@@ -114,7 +114,7 @@ Project: **phoenixrestoration-net**. Set these for Production and Preview. After
 
 `TURNSTILE_SITE_KEY` is public. Add it to `wrangler.toml` under `[vars]` when you have it, because a deploy that applies this file can replace dashboard variables. Leave `TURNSTILE_SECRET` out of the file. For local `wrangler pages dev`, copy `.dev.vars.example` to `.dev.vars`.
 
-The handler rejects Cloudflare’s public testing secret on every hostname except `localhost` and `127.0.0.1`.
+The handler rejects Cloudflare’s public testing secret on every hostname except `localhost` and `127.0.0.1`. On those two hosts, the documented testing keys are accepted even though Siteverify reports hostname `example.com` and omits the action. A real widget still has to match action `quote` and the request hostname.
 
 ### 3. Turnstile widget
 
