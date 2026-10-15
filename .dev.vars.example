@@ -1,0 +1,6 @@
+# Copy to .dev.vars for `wrangler pages dev` only. Never commit .dev.vars.
+# Use the real Turnstile secret from the dashboard.
+# The public testing secret 1x0000000000000000000000000000000AA always passes.
+# The quote handler rejects that testing secret on any hostname other than
+# localhost and 127.0.0.1, so do not put it on the Pages project.
+TURNSTILE_SECRET=replace-with-turnstile-secret

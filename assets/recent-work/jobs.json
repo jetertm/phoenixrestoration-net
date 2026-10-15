@@ -1,0 +1,25 @@
+{
+  "note": "The home page reads this file. To add a job, either append an object here or drop a folder at assets/recent-work/<slug>/ with before.jpg and after.jpg (png and webp work too) plus an optional job.json, then run: node scripts/index-recent-work.mjs. Leave town as an empty string until you know it. Do not invent a town, a street, or a customer name. Use only photos that are actually the before and after of the same job.",
+  "jobs": [
+    {
+      "slug": "deck-build",
+      "title": "Deck build",
+      "trade": "Decking",
+      "town": "",
+      "before": "assets/from-drive/chuck-deck-01.jpg",
+      "after": "assets/from-drive/chuck-deck-02.jpg",
+      "beforeAlt": "Deck framing in progress, with joists and posts set and the finish boards not yet installed",
+      "afterAlt": "Finished deck with boards, metal railings, and stairs"
+    },
+    {
+      "slug": "grey-tile-bath",
+      "title": "Grey-tile bathroom",
+      "trade": "Bath",
+      "town": "",
+      "before": "assets/from-jessy/bathrooms/bath-demo-progress.jpg",
+      "after": "assets/from-jessy/bathrooms/bath-grey-tub.jpg",
+      "beforeAlt": "Bathroom with grey wall tile and a tub surround still in progress",
+      "afterAlt": "Finished bathroom with grey wall tile, white subway tile, a tub, and a glass shower screen"
+    }
+  ]
+}
