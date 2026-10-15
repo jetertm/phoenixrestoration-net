@@ -33,7 +33,7 @@ Click through **Home → Services → About → Team → Service area → Contac
 | `assets/recent-work/jobs.json` | Before/after jobs for the home page |
 | `assets/` | Logo files and project photos |
 
-The contact page has a **Request a quote** form. It posts to the Pages Function at `/api/quote`, which emails `eve-phoenix@mail.grokbot.com`. The public address `info@phoenixrestoration.net` stays on the page for people who want to write directly. With JavaScript off, the form cannot send; the page tells the visitor to call or email.
+The contact page has a **Request a quote** form. It posts to the Pages Function at `/api/quote`, which sends the lead through AgentMail to `eve-phoenix@mail.grokbot.com`. The public address `info@phoenixrestoration.net` stays on the page for people who want to write directly. With JavaScript off, the form cannot send; the page tells the visitor to call or email.
 
 ## What changed from the one-pager
 
@@ -64,59 +64,26 @@ Upload the publish zip’s contents as the web root when Jessy is ready. Do not 
 
 ## Quote form setup
 
-The form does not send until the Cloudflare project `phoenixrestoration-net` has the binding, variables, and Turnstile secret below. This repo does not change DNS. Google Workspace mail on `phoenixrestoration.net` stays in place only if the apex MX records are left alone.
+The form sends through AgentMail. It does not use Cloudflare Email Sending, so GoDaddy DNS does not need to change. Do not add or edit MX, SPF, DKIM, or any other DNS record for this form.
 
-### Do not do this
-
-- Do not click **Onboard Domain** for Email Routing on `phoenixrestoration.net`. That replaces the apex MX records (`aspmx.l.google.com` and the `alt` records) and takes incoming mail away from Google Workspace.
-- Do not replace the apex SPF record Google Workspace uses.
-- Do not replace an existing `_dmarc` TXT record. If Email Sending offers a new `_dmarc` policy of `p=reject`, refuse it. A new DMARC record, if you need one at all, should start as `v=DMARC1; p=none`.
-- Do not add `localhost` or `127.0.0.1` to the production Turnstile hostname list.
-
-### 1. Free email path (verified destination)
-
-Sends to a verified destination address are free on Workers Free, including when only Email Routing is configured. Arbitrary-recipient Email Sending is a Workers Paid feature and is not required here.
-
-1. In the Cloudflare dashboard, go to **Compute → Email Service → Email Routing → Destination addresses**. Add `eve-phoenix@mail.grokbot.com` and click the verification link Cloudflare sends to that inbox.
-2. Open the zone `phoenixrestoration.net` under Email Routing. Do not onboard the apex. Open **Settings → Subdomains** and add `quotes`. Cloudflare adds MX records only on `quotes.phoenixrestoration.net` (its own `route1`, `route2`, and `route3.mx.cloudflare.net` records). Leave the apex MX records on Google. If that Subdomains control is unavailable unless you onboard the apex, stop and use the Email Sending fallback below. Do not onboard Email Routing on the apex.
-3. Confirm the Pages binding can send only to that destination. `wrangler.toml` already contains:
-
-```toml
-[[send_email]]
-name = "EMAIL"
-destination_address = "eve-phoenix@mail.grokbot.com"
-```
-
-The function sends **from** `leads@quotes.phoenixrestoration.net` (variable `LEAD_FROM`) **to** `eve-phoenix@mail.grokbot.com`, with the visitor’s email as Reply-To. The subject line is `New quote request: <name> - <type> - <town>`.
-
-If a send fails with the sender domain not verified, use Email **Sending** (not Email Routing) for `phoenixrestoration.net` instead of the subdomain. Email Sending adds records on the `cf-bounce` subdomain only:
-
-| Type | Name | Purpose |
-| --- | --- | --- |
-| MX | `cf-bounce` | Bounce handling. Not the apex. |
-| TXT | `cf-bounce` | SPF: `v=spf1 include:_spf.mx.cloudflare.net ~all` |
-| TXT | `cf-bounce._domainkey` | DKIM. Cloudflare shows the value. |
-
-Then set `LEAD_FROM` to `leads@phoenixrestoration.net`. Still do not change the apex MX or the Google SPF record.
-
-### 2. Pages binding, variables, and secret
-
-Project: **phoenixrestoration-net**. Set these for Production and Preview. After a Git deploy, confirm the binding is listed on the project. If the deploy did not apply `wrangler.toml`, add the binding in **Workers & Pages → phoenixrestoration-net → Settings → Bindings**.
+Project: **phoenixrestoration-net**. Set these for Production and Preview. `LEAD_FROM_INBOX` and `LEAD_TO` are already in `wrangler.toml`. Secrets stay out of the file. For local `wrangler pages dev`, copy `.dev.vars.example` to `.dev.vars`.
 
 | Kind | Name | Value |
 | --- | --- | --- |
-| Send Email binding | `EMAIL` | Destination address `eve-phoenix@mail.grokbot.com` only |
-| Plain variable | `LEAD_FROM` | `leads@quotes.phoenixrestoration.net` |
+| Secret (encrypt) | `AGENTMAIL_API_KEY` | AgentMail API key for the leads inbox |
+| Plain variable | `LEAD_FROM_INBOX` | `phoenix-leads@agentmail.to` |
 | Plain variable | `LEAD_TO` | `eve-phoenix@mail.grokbot.com` |
 | Plain variable | `TURNSTILE_HOSTNAMES` | `phoenixrestoration.net,www.phoenixrestoration.net,phoenixrestoration-net.pages.dev` |
-| Plain variable | `TURNSTILE_SITE_KEY` | Public Turnstile sitekey from step 3 |
+| Plain variable | `TURNSTILE_SITE_KEY` | Public Turnstile sitekey from the widget step |
 | Secret (encrypt) | `TURNSTILE_SECRET` | Turnstile secret key. Never commit it. |
 
-`TURNSTILE_SITE_KEY` is public. Add it to `wrangler.toml` under `[vars]` when you have it, because a deploy that applies this file can replace dashboard variables. Leave `TURNSTILE_SECRET` out of the file. For local `wrangler pages dev`, copy `.dev.vars.example` to `.dev.vars`.
+The function POSTs to `https://api.agentmail.to/v0/inboxes/phoenix-leads@agentmail.to/messages/send` with `Authorization: Bearer` and JSON `to`, `reply_to`, `subject`, `text`, and `html`. `reply_to` is the visitor's email. The subject is `New quote request: <name> - <type> - <town>`. A non-2xx response is treated as a failure and the visitor is asked to call.
+
+`TURNSTILE_SITE_KEY` is public. Add it under `[vars]` in `wrangler.toml` when you have it, because a deploy that applies this file can replace dashboard variables. Do not add `localhost` or `127.0.0.1` to the production Turnstile hostname list.
 
 The handler rejects Cloudflare’s public testing secret on every hostname except `localhost` and `127.0.0.1`. On those two hosts, the documented testing keys are accepted even though Siteverify reports hostname `example.com` and omits the action. A real widget still has to match action `quote` and the request hostname.
 
-### 3. Turnstile widget
+### Turnstile widget
 
 1. Dashboard → **Turnstile → Add widget**.
 2. Name: `Phoenix quote form`. Mode: **Managed**.

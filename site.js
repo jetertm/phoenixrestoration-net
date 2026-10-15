@@ -105,11 +105,6 @@
     quoteForm.addEventListener("submit", async function (event) {
       event.preventDefault();
       if (!quoteForm.reportValidity()) return;
-      var photo = quoteForm.querySelector("#photo");
-      if (photo && photo.files && photo.files[0] && photo.files[0].size > 2 * 1024 * 1024) {
-        if (status) status.textContent = "Photo must be 2 MB or smaller.";
-        return;
-      }
       if (status) status.textContent = "";
       if (submit) submit.disabled = true;
 

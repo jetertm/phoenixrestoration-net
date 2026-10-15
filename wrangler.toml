@@ -6,7 +6,7 @@ compatibility_date = "2026-10-15"
 pages_build_output_dir = "."
 
 [vars]
-LEAD_FROM = "leads@quotes.phoenixrestoration.net"
+LEAD_FROM_INBOX = "phoenix-leads@agentmail.to"
 LEAD_TO = "eve-phoenix@mail.grokbot.com"
 # Production hostnames only. Do not add localhost or 127.0.0.1.
 TURNSTILE_HOSTNAMES = "phoenixrestoration.net,www.phoenixrestoration.net,phoenixrestoration-net.pages.dev"
@@ -14,12 +14,7 @@ TURNSTILE_HOSTNAMES = "phoenixrestoration.net,www.phoenixrestoration.net,phoenix
 # (or as a plaintext Pages variable of the same name):
 # TURNSTILE_SITE_KEY = "0x..."
 
-# Free send path: this binding can email only the verified destination.
-# Do not remove destination_address. That lock is what keeps the form
-# from sending mail to anyone else.
-[[send_email]]
-name = "EMAIL"
-destination_address = "eve-phoenix@mail.grokbot.com"
+# AGENTMAIL_API_KEY is a Pages secret. Do not put it in this file.
 
 [observability]
 enabled = true
