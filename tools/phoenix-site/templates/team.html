@@ -1,0 +1,28 @@
+    <div class="wrap page-hero">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li aria-current="page">Team</li>
+      </ol>
+    </nav>
+
+      <p class="eyebrow">Team</p>
+      <h1>Meet the team.</h1>
+      <p class="lead">A small crew. When you call or write, you reach us — not a call center.</p>
+    </div>
+    <section class="section" aria-labelledby="team-heading">
+      <div class="wrap team-wrap">
+        <h2 id="team-heading" class="visually-hidden">People</h2>
+        <ul class="team-grid">
+          {{#team_cards}}
+          <li class="team-card">
+            <p class="team-initials" aria-hidden="true">{{ initials }}</p>
+            <h2>{{ name }}</h2>
+            <p class="team-role">{{ role }}</p>
+            <p class="team-bio">{{ bio }}</p>
+            <p class="team-contact">{{{ contact_html }}}</p>
+          </li>
+          {{/team_cards}}
+        </ul>
+      </div>
+    </section>

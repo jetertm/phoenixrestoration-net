@@ -6,27 +6,28 @@ Domain: **https://phoenixrestoration.net/** — do not change DNS or register an
 
 ## Preview
 
-No build step. Open `index.html` in a browser, or:
+Editable copy lives in `tools/phoenix-site/content/site.json`. Pages are rendered from `tools/phoenix-site/templates/`.
 
 ```bash
-cd /workspace/phoenix-web/site
-python3 -m http.server 8080
+pip install -r tools/phoenix-site/requirements.txt
+python3 tools/phoenix-site/phoenix-site build
+python3 tools/phoenix-site/phoenix-site preview
 ```
 
 Then open http://127.0.0.1:8080/
 
-Click through **Home → Services → About → Team → Service area → Contact**.
+Click through **Home → Services → About → Team → Service area → Contact**. See `tools/phoenix-site/README.md` for check, images, deploy, and DNS. Deploy is a dry run unless `--commit` is passed. Nothing in this repo changes DNS.
 
 ## Pages
 
 | File | What it is |
 |------|------------|
-| `index.html` | Home: hero, services, real project photos, 10-county teaser, how a job starts |
-| `services.html` | Full bathroom remodels, paint and trim, decks and fencing, full kitchen renovations, roofs, floors, multi-trade work |
-| `about.html` | Disabled veteran-owned, owner Jessy Jeter, how we work, cash or check |
-| `team.html` | Meet the team: Jessy Jeter and Eve Harper. Card grid so more people can be added later |
-| `area.html` | All 10 counties, with example towns — not a list of offices. Based in Verbena |
-| `contact.html` | Phone, email, hours, county list, quote form |
+| `dist/index.html` | Home: hero, services, real project photos, 10-county teaser, how a job starts. Generated. |
+| `dist/services.html` | Full bathroom remodels, paint and trim, decks and fencing, full kitchen renovations, roofs, floors, multi-trade work. Generated. |
+| `dist/about.html` | Disabled veteran-owned, owner Jessy Jeter, how we work, Net 7 payment terms. Generated. |
+| `dist/team.html` | Meet the team: Jessy Jeter and Eve Harper. Card grid so more people can be added later. Generated. |
+| `dist/area.html` | All 10 counties, with example towns — not a list of offices. Based in Verbena. Generated. |
+| `dist/contact.html` | Phone, email, hours, county list, quote form. Generated. |
 | `styles.css` | Shared styles |
 | `site.js` | Menu, footer year, quote form, recent-work gallery |
 | `functions/api/quote.js` | Pages Function that emails a quote request |
@@ -50,17 +51,13 @@ The contact page has a **Request a quote** form. It posts to the Pages Function 
 
 - Phone: (334) 327-7450
 - Public email: info@phoenixrestoration.net
-- Payment: cash or check only; checks payable to Phoenix Restoration LLC
+- Payment: Payment due within 7 days of invoice (Net 7). Accepted: card or ACH via Stripe pay link, ACH bank transfer, cash, check, or cashier's check.
 - Hours: Monday–Friday 8:00 AM–5:00 PM Central; weekends by appointment
 - Facebook: https://www.facebook.com/people/Phoenix-Restoration/61559147480515/
 
 ## Publish
 
-A zip of the site files (no preview screenshots) is at:
-
-`/workspace/phoenix-web/phoenix-site-preview.zip` (site files for Desktop review; old preview screenshots left out so they do not show the removed deck) and `/workspace/phoenix-web/publish/phoenix-site.zip` (deploy package without preview screenshots).
-
-Upload the publish zip’s contents as the web root when Jessy is ready. Do not point DNS until then.
+Build with `python3 tools/phoenix-site/phoenix-site build`, then `phoenix-site check`. The Cloudflare Pages project `phoenixrestoration-net` is a direct upload (it is not connected to Git). `phoenix-site deploy` only prints the plan. `phoenix-site deploy --commit` uploads `dist/` with wrangler after the check passes. Do not point or edit DNS from this folder. Google Workspace MX for phoenixrestoration.net must stay as it is. `phoenix-site dns-check` only reads records.
 
 ## Quote form setup
 

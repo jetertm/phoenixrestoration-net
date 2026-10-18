@@ -1,0 +1,38 @@
+    <div class="wrap page-hero">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li aria-current="page">Services</li>
+      </ol>
+    </nav>
+
+      <p class="eyebrow">Services</p>
+      <h1>Remodeling services for your home.</h1>
+      <p class="lead">The work we take on from Verbena. Photos are from real jobs.</p>
+    </div>
+    <section class="section" aria-label="Service details">
+      <div class="wrap">
+        {{#services}}
+        <article class="service-block has-photos" id="{{ id }}">
+          <div>
+            <p class="service-kicker">{{ kicker }}</p>
+            <h2>{{ name }}</h2>
+            <p>{{ lead }}</p>
+            <ul>
+              {{#bullets}}
+              <li>{{ value }}</li>
+              {{/bullets}}
+            </ul>
+          </div>
+          <div class="service-photos">
+            {{#photos}}
+            <figure class="shot">
+              <img src="{{ src }}" width="{{ width }}" height="{{ height }}" alt="{{ alt }}" loading="lazy">
+              <figcaption>{{ caption }}</figcaption>
+            </figure>
+            {{/photos}}
+          </div>
+        </article>
+        {{/services}}
+      </div>
+    </section>

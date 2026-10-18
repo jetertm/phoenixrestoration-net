@@ -1,0 +1,621 @@
+{
+  "business_name": "Phoenix Restoration LLC",
+  "short_name": "Phoenix Restoration",
+  "logo_tag": "LLC · Verbena",
+  "tagline": "Restore · Renew · Rebuild",
+  "veteran_line": "Disabled veteran-owned",
+  "footer_tag": "Local remodeling from Verbena, Alabama.",
+  "email": "info@phoenixrestoration.net",
+  "facebook": "https://www.facebook.com/people/Phoenix-Restoration/61559147480515/",
+  "phone_display": "(334) 327-7450",
+  "phone_tel": "+13343277450",
+  "phone_schema": "+1-334-327-7450",
+  "locality": "Verbena",
+  "site_url": "https://phoenixrestoration.net/",
+  "theme_color": "#8c341c",
+  "og_image": "https://phoenixrestoration.net/assets/logo-512.jpg",
+  "og_image_alt": "Phoenix Restoration seal: a gold phoenix and cross, Restore, Renew, Rebuild",
+  "payment": "Payment due within 7 days of invoice (Net 7). Accepted: card or ACH via Stripe pay link, ACH bank transfer, cash, check, or cashier's check.",
+  "cta": {
+    "heading": "Tell us about the house.",
+    "button": "Request a quote"
+  },
+  "hero_eyebrow": "Residential renovation · Central Alabama",
+  "hero_heading": "Remodeling for homes around Verbena.",
+  "hero_lead": "We're a local remodeler based in Verbena. Full bathroom remodels, paint, decks and fencing, full kitchen renovations, roofs, and floors — across ten counties around here.",
+  "hero": {
+    "src": "assets/from-facebook/full/kitchen-1.jpg",
+    "width": 720,
+    "height": 960,
+    "alt": "Finished kitchen with painted cabinets, quartz counters, stainless appliances, and wood flooring",
+    "caption": "A kitchen we finished — cabinets, counters, and floors."
+  },
+  "services_intro": "Full bathroom remodels, paint, decks and fencing, full kitchen renovations, roofs, floors, and jobs that take more than one trade.",
+  "trust": [
+    "Disabled veteran-owned",
+    "Owner-operated",
+    "Net 7",
+    "10 counties, county-wide"
+  ],
+  "schema_services": [
+    "Kitchen renovation",
+    "Bathroom remodel",
+    "Flooring",
+    "Decking and fencing",
+    "Full rebuild",
+    "Roofing",
+    "Interior and exterior paint"
+  ],
+  "services": [
+    {
+      "id": "bathrooms",
+      "name": "Full bathroom remodels",
+      "icon": "bath",
+      "kicker": "01",
+      "summary": "Showers, tubs, tile, and the finish work that completes the room.",
+      "lead": "From a fresh shower to a full bathroom, we make the room work better and feel like home.",
+      "bullets": [
+        "Showers, tubs, vanities, and toilets",
+        "Tile, paint, and finish work",
+        "Full bathroom remodels, start to finish"
+      ],
+      "photos": [
+        {
+          "src": "assets/from-jessy/bathrooms/bath-glass-shower.jpg",
+          "width": 960,
+          "height": 720,
+          "alt": "Finished bathroom with glass shower and gold faucet",
+          "caption": "Bathroom remodel — glass shower and gold faucet"
+        },
+        {
+          "src": "assets/from-jessy/bathrooms/bath-marble-shower.jpg",
+          "width": 960,
+          "height": 720,
+          "alt": "Marble walk-in shower with a diamond tile inlay",
+          "caption": "Bathroom remodel — marble shower and tile inlay"
+        },
+        {
+          "src": "assets/from-jessy/bathrooms/bath-demo-progress.jpg",
+          "width": 960,
+          "height": 720,
+          "alt": "Bathroom in progress during strip-out with dated pink fixtures",
+          "caption": "Bathroom remodel — mid-job strip-out"
+        },
+        {
+          "src": "assets/from-jessy/bathrooms/bath-grey-tub.jpg",
+          "width": 960,
+          "height": 720,
+          "alt": "Bathroom with grey tile tub surround and black fixtures",
+          "caption": "Bathroom remodel — grey tile and black fixtures"
+        }
+      ]
+    },
+    {
+      "id": "paint",
+      "name": "Exterior/interior paint",
+      "icon": "paint",
+      "kicker": "02",
+      "summary": "Fresh paint inside and out, with the prep and trim work to match.",
+      "lead": "Fresh paint inside and out, with the prep and trim work that makes it last.",
+      "bullets": [
+        "Interior rooms, doors, and trim",
+        "Exterior painting and prep",
+        "Trim repair and finish work"
+      ],
+      "photos": [
+        {
+          "src": "assets/from-jessy/paint/paint-dark-exterior.jpg",
+          "width": 960,
+          "height": 720,
+          "alt": "Dark-painted exterior of a home",
+          "caption": "Exterior paint — dark finish"
+        },
+        {
+          "src": "assets/from-jessy/paint/paint-exterior-mask.jpg",
+          "width": 960,
+          "height": 720,
+          "alt": "Exterior painting with surfaces masked for a clean finish",
+          "caption": "Exterior paint — careful masking and prep"
+        },
+        {
+          "src": "assets/from-jessy/paint/paint-interior-roller.jpg",
+          "width": 960,
+          "height": 720,
+          "alt": "Interior wall being painted with a roller",
+          "caption": "Interior paint — roller finish work"
+        },
+        {
+          "src": "assets/from-jessy/paint/paint-beadboard-room.jpg",
+          "width": 960,
+          "height": 720,
+          "alt": "Finished room with painted beadboard walls",
+          "caption": "Interior paint — beadboard room"
+        },
+        {
+          "src": "assets/from-jessy/paint/paint-vaulted-windows.jpg",
+          "width": 960,
+          "height": 720,
+          "alt": "Painted interior with vaulted ceiling and tall windows",
+          "caption": "Interior paint — vaulted room and windows"
+        },
+        {
+          "src": "assets/from-jessy/paint/paint-finished-room.jpg",
+          "width": 960,
+          "height": 720,
+          "alt": "Finished painted room with completed walls and trim",
+          "caption": "Interior paint — finished room and trim"
+        }
+      ]
+    },
+    {
+      "id": "decks",
+      "name": "Decks and fencing",
+      "icon": "deck",
+      "kicker": "03",
+      "summary": "Decks, porches, and privacy fencing — new builds and repairs.",
+      "lead": "We build and repair decks and porches, plus privacy fencing and gates that feel right at home.",
+      "bullets": [
+        "New decks and porches",
+        "Board, rail, and stair repairs",
+        "Privacy fencing and driveway gates"
+      ],
+      "photos": [
+        {
+          "src": "assets/from-jessy/decks-fencing/covered-deck.jpg",
+          "width": 339,
+          "height": 720,
+          "alt": "Covered wooden deck and porch with stairs and railings",
+          "caption": "Covered deck — stairs and railings"
+        },
+        {
+          "src": "assets/from-jessy/decks-fencing/elevated-deck.jpg",
+          "width": 960,
+          "height": 720,
+          "alt": "Elevated wooden deck with framing visible beneath it",
+          "caption": "Elevated deck — framing and structure"
+        },
+        {
+          "src": "assets/from-jessy/decks-fencing/privacy-fence.jpg",
+          "width": 960,
+          "height": 720,
+          "alt": "Wooden privacy fence with a double driveway gate",
+          "caption": "Privacy fence — double driveway gate"
+        },
+        {
+          "src": "assets/from-jessy/decks-fencing/front-deck.jpg",
+          "width": 720,
+          "height": 960,
+          "alt": "Front wooden deck with lattice skirting and stairs",
+          "caption": "Front deck — lattice skirting and stairs"
+        },
+        {
+          "src": "assets/from-jessy/decks-fencing/porch-cable-rails.jpg",
+          "width": 960,
+          "height": 460,
+          "alt": "Covered porch with cable-rail infill and a metal roof",
+          "caption": "Porch — cable rails and metal roof"
+        }
+      ]
+    },
+    {
+      "id": "kitchens",
+      "name": "Full kitchen renovations",
+      "icon": "kitchen",
+      "kicker": "04",
+      "summary": "Cabinets, islands, surfaces, and finish work brought together.",
+      "lead": "We bring the whole kitchen together — cabinets, surfaces, and the details that make it yours.",
+      "bullets": [
+        "Cabinets, counters, and islands",
+        "Backsplashes, flooring, and finish work",
+        "Full kitchen renovations with the trades coordinated"
+      ],
+      "photos": [
+        {
+          "src": "assets/from-jessy/kitchens/kitchen-open-shelves.jpg",
+          "width": 720,
+          "height": 960,
+          "alt": "Kitchen with open shelves, brick wall, and archway into the living room",
+          "caption": "Kitchen renovation — open shelves and living-room arch"
+        },
+        {
+          "src": "assets/from-jessy/kitchens/kitchen-brick-backsplash.jpg",
+          "width": 720,
+          "height": 960,
+          "alt": "Kitchen stove and sink wall with a brick backsplash",
+          "caption": "Kitchen renovation — brick backsplash and work wall"
+        },
+        {
+          "src": "assets/from-jessy/kitchens/kitchen-island-arch.jpg",
+          "width": 960,
+          "height": 720,
+          "alt": "Kitchen island looking through an archway into the living room",
+          "caption": "Kitchen renovation — island and open sightline"
+        },
+        {
+          "src": "assets/from-jessy/kitchens/kitchen-white-island.jpg",
+          "width": 960,
+          "height": 720,
+          "alt": "Kitchen with white cabinets, island, and stainless-steel appliances",
+          "caption": "Kitchen renovation — white cabinets and island"
+        }
+      ]
+    },
+    {
+      "id": "roofs",
+      "name": "Roofing",
+      "icon": "roof",
+      "kicker": "05",
+      "summary": "Leak repair, shingle and metal work, and full replacement.",
+      "lead": "From careful repairs to a new roof, we keep the house covered and the work clear.",
+      "bullets": [
+        "Leak tracing and repair",
+        "Shingle and metal roof work",
+        "Roof replacement and related framing"
+      ],
+      "photos": [
+        {
+          "src": "assets/from-jessy/roofing/roof-peak-work.jpg",
+          "width": 960,
+          "height": 720,
+          "alt": "Roof work in progress at a roof peak",
+          "caption": "Roofing — peak work in progress"
+        },
+        {
+          "src": "assets/from-jessy/roofing/roof-metal-waterfront.jpg",
+          "width": 960,
+          "height": 720,
+          "alt": "Metal roof on a waterfront home",
+          "caption": "Roofing — metal roof by the water"
+        },
+        {
+          "src": "assets/from-jessy/roofing/roof-shingle-replace.jpg",
+          "width": 960,
+          "height": 720,
+          "alt": "Roof shingles being replaced on a home",
+          "caption": "Roofing — shingle replacement"
+        },
+        {
+          "src": "assets/from-jessy/roofing/roof-deck-open.jpg",
+          "width": 960,
+          "height": 516,
+          "alt": "Roof deck exposed during a roofing project",
+          "caption": "Roofing — roof deck opened for repair"
+        },
+        {
+          "src": "assets/from-jessy/roofing/roof-lathe-crew.jpg",
+          "width": 960,
+          "height": 720,
+          "alt": "Roofing crew working on roof lath",
+          "caption": "Roofing — crew at work on the roof"
+        },
+        {
+          "src": "assets/from-jessy/roofing/roof-chimney-demo.jpg",
+          "width": 960,
+          "height": 540,
+          "alt": "Chimney area opened during a roofing project",
+          "caption": "Roofing — chimney area in progress"
+        }
+      ]
+    },
+    {
+      "id": "floors",
+      "name": "Floors and finish labor",
+      "icon": "floor",
+      "kicker": "06",
+      "summary": "Flooring and the trim that finishes the room.",
+      "lead": "Take-up, install, and the subfloor fixes that show up once the old floor is open.",
+      "bullets": [
+        "Removal and install as part of a remodel",
+        "Subfloor repair found on the job",
+        "Transitions and trim to finish the room"
+      ],
+      "photos": [
+        {
+          "src": "assets/from-facebook/full/interior-4.jpg",
+          "width": 720,
+          "height": 960,
+          "alt": "Finished room with restored wood floor, paneled walls, ceiling, and fireplace",
+          "caption": "Interior finish work — restored wood floor and paneled room"
+        }
+      ]
+    },
+    {
+      "id": "multi",
+      "name": "Multi-trade renovations",
+      "icon": "multi",
+      "kicker": "07",
+      "summary": "One local contractor when the job needs more than one trade.",
+      "lead": "A bath that also needs paint and flooring, or a kitchen with cabinets and finish work — one local contractor for the job.",
+      "bullets": [
+        "Updates that cross trades",
+        "Scope agreed before we start"
+      ],
+      "photos": [
+        {
+          "src": "assets/from-facebook/full/kitchen-1.jpg",
+          "width": 720,
+          "height": 960,
+          "alt": "Finished kitchen with painted cabinets, quartz counters, stainless appliances, and wood flooring",
+          "caption": "Kitchen renovation — cabinets, counters, appliances, and finish work"
+        },
+        {
+          "src": "assets/from-facebook/full/fireplace-1.jpg",
+          "width": 720,
+          "height": 960,
+          "alt": "Finished room with restored wood floor, paneled walls, ceiling, and fireplace",
+          "caption": "Room renovation — fireplace, paneling, ceiling, and floor finish"
+        }
+      ]
+    }
+  ],
+  "service_area": [
+    {
+      "id": "chilton",
+      "name": "Chilton County",
+      "short": "Chilton",
+      "home_base": true,
+      "badge": "Home base: Verbena",
+      "blurb": "Verbena is home. We also work in Clanton, Marbury, Jemison, Thorsby, Maplesville, and the rest of the county."
+    },
+    {
+      "id": "autauga",
+      "name": "Autauga County",
+      "short": "Autauga",
+      "badge": "County-wide",
+      "blurb": "Prattville, Autaugaville, and the rest of Autauga County."
+    },
+    {
+      "id": "elmore",
+      "name": "Elmore County",
+      "short": "Elmore",
+      "badge": "County-wide",
+      "blurb": "Wetumpka, Millbrook, Eclectic, and the rest of Elmore County."
+    },
+    {
+      "id": "shelby",
+      "name": "Shelby County",
+      "short": "Shelby",
+      "badge": "County-wide",
+      "blurb": "Columbiana, Calera, and the rest of Shelby County."
+    },
+    {
+      "id": "bibb",
+      "name": "Bibb County",
+      "short": "Bibb",
+      "badge": "County-wide",
+      "blurb": "Centreville, Brent, West Blocton, and the rest of Bibb County."
+    },
+    {
+      "id": "coosa",
+      "name": "Coosa County",
+      "short": "Coosa",
+      "badge": "County-wide",
+      "blurb": "Rockford, Goodwater, and the rest of Coosa County."
+    },
+    {
+      "id": "dallas",
+      "name": "Dallas County",
+      "short": "Dallas",
+      "badge": "County-wide",
+      "blurb": "Selma and the rest of Dallas County."
+    },
+    {
+      "id": "perry",
+      "name": "Perry County",
+      "short": "Perry",
+      "badge": "County-wide",
+      "blurb": "Marion, Uniontown, and the rest of Perry County."
+    },
+    {
+      "id": "lowndes",
+      "name": "Lowndes County",
+      "short": "Lowndes",
+      "badge": "County-wide",
+      "blurb": "Hayneville, Fort Deposit, Lowndesboro, and the rest of Lowndes County."
+    },
+    {
+      "id": "montgomery",
+      "name": "Montgomery County",
+      "short": "Montgomery",
+      "badge": "County-wide",
+      "blurb": "Montgomery and the rest of Montgomery County."
+    }
+  ],
+  "gallery": [
+    {
+      "src": "assets/from-jessy/decks-fencing/covered-deck.jpg",
+      "width": 339,
+      "height": 720,
+      "alt": "Covered wooden deck and porch with stairs and railings",
+      "caption": "Covered deck — stairs and railings",
+      "name": "project-01",
+      "reviewed": true
+    },
+    {
+      "src": "assets/from-jessy/decks-fencing/privacy-fence.jpg",
+      "width": 960,
+      "height": 720,
+      "alt": "Wooden privacy fence with a double driveway gate",
+      "caption": "Privacy fence — double driveway gate",
+      "name": "project-02",
+      "reviewed": true
+    },
+    {
+      "src": "assets/from-facebook/full/kitchen-1.jpg",
+      "width": 720,
+      "height": 960,
+      "alt": "Finished kitchen with painted cabinets, quartz counters, stainless appliances, and wood flooring",
+      "caption": "Kitchen remodel — cabinets, counters, and appliance wall",
+      "name": "project-03",
+      "reviewed": true
+    },
+    {
+      "src": "assets/from-facebook/full/kitchen-2.jpg",
+      "width": 720,
+      "height": 960,
+      "alt": "Kitchen work area with brick backsplash, open shelves, cabinetry, and a quartz counter",
+      "caption": "Kitchen remodel — brick backsplash and built-in storage",
+      "name": "project-04",
+      "reviewed": true
+    },
+    {
+      "src": "assets/from-facebook/full/kitchen-3.jpg",
+      "width": 720,
+      "height": 960,
+      "alt": "Dining area with finished wood flooring, painted walls, and trimmed windows beside the kitchen",
+      "caption": "Kitchen project — dining area and finished flooring",
+      "name": "project-05",
+      "reviewed": true
+    },
+    {
+      "src": "assets/from-facebook/full/bathroom.jpg",
+      "width": 720,
+      "height": 960,
+      "alt": "Completed bathroom with tiled shower, vanity, mirror, and updated fixtures",
+      "caption": "Bathroom remodel — vanity, tile, and fixture finish work",
+      "name": "project-06",
+      "reviewed": true
+    },
+    {
+      "src": "assets/from-facebook/full/interior-1.jpg",
+      "width": 960,
+      "height": 720,
+      "alt": "Interior room being painted with floors and furnishings protected",
+      "caption": "Interior paint project — prep and finish work",
+      "name": "project-07",
+      "reviewed": true
+    },
+    {
+      "src": "assets/from-facebook/full/interior-2.jpg",
+      "width": 720,
+      "height": 960,
+      "alt": "Finished open interior with dark wood flooring, windows, and connected rooms",
+      "caption": "Interior renovation — open living area and flooring",
+      "name": "project-08",
+      "reviewed": true
+    },
+    {
+      "src": "assets/from-facebook/full/interior-3.jpg",
+      "width": 720,
+      "height": 960,
+      "alt": "Finished kitchen with white cabinets, appliances, wood floors, and beadboard walls",
+      "caption": "Kitchen and finish work — cabinets, walls, and wood floor",
+      "name": "project-09",
+      "reviewed": true
+    },
+    {
+      "src": "assets/from-facebook/full/interior-4.jpg",
+      "width": 720,
+      "height": 960,
+      "alt": "Finished room with restored wood floor, paneled walls, ceiling, and fireplace",
+      "caption": "Interior finish work — restored wood floor and paneled room",
+      "name": "project-10",
+      "reviewed": true
+    },
+    {
+      "src": "assets/from-facebook/full/porch-exterior.jpg",
+      "width": 720,
+      "height": 960,
+      "alt": "Completed raised porch deck with stairs, rails, and exterior siding",
+      "caption": "Porch and deck — boards, rails, and stairs",
+      "name": "project-11",
+      "reviewed": true
+    }
+  ],
+  "team": [
+    {
+      "initials": "JJ",
+      "name": "Jessy Jeter",
+      "role": "Owner and remodeler",
+      "bio": "Disabled veteran. Jessy runs Phoenix Restoration LLC from Verbena — he walks the job and does the work.",
+      "show_phone": true,
+      "email": "info@phoenixrestoration.net"
+    },
+    {
+      "initials": "EH",
+      "name": "Eve Harper",
+      "role": "Office and client coordinator",
+      "bio": "Eve handles scheduling, client messages, and keeping jobs organized.",
+      "email": "eve@phoenixrestoration.net"
+    }
+  ],
+  "pages": {
+    "home": {
+      "file": "index.html",
+      "title": "Phoenix Restoration LLC | Residential Renovation in Central Alabama",
+      "description": "Phoenix Restoration LLC is a disabled veteran-owned residential renovation and rebuild company in Verbena, Alabama. Kitchens, baths, flooring, decking, and full rebuilds in Elmore County, Chilton County, and eight more Central Alabama counties. Call (334) 327-7450.",
+      "canonical": "https://phoenixrestoration.net/",
+      "schema_description": "Disabled veteran-owned residential renovation and rebuild company based in Verbena, Alabama. Kitchens, baths, flooring, decking, and full rebuilds across Elmore County, Chilton County, and eight more Central Alabama counties.",
+      "offer_catalog": true,
+      "schema_comment": "SEO placeholders left unpublished on purpose: street address, postal code, geo coordinates, contractor license number, and reviews. Do not invent them.",
+      "cta_id": "cta-heading",
+      "cta_href": "contact.html#quote"
+    },
+    "services": {
+      "file": "services.html",
+      "title": "Residential Remodeling Services | Phoenix Restoration LLC",
+      "description": "Full bathroom remodels, paint, decks and fencing, full kitchen renovations, roofs, and floors from a disabled veteran-owned remodeler in Verbena, Alabama.",
+      "canonical": "https://phoenixrestoration.net/services.html",
+      "schema_description": "Disabled veteran-owned remodeler based in Verbena, Alabama. Full bathroom remodels, paint, decks and fencing, full kitchen renovations, roofs, and floors across 10 counties.",
+      "cta_id": "cta-services",
+      "cta_href": "contact.html#quote"
+    },
+    "about": {
+      "file": "about.html",
+      "title": "About Phoenix Restoration LLC | Owner-Operated Remodeler",
+      "description": "Jessy Jeter runs Phoenix Restoration LLC, a disabled veteran-owned remodeler, from Verbena.",
+      "canonical": "https://phoenixrestoration.net/about.html",
+      "schema_description": "Disabled veteran-owned remodeler based in Verbena, Alabama. Bathrooms, paint, decks, roofs, and floors across 10 counties.",
+      "cta_id": "cta-about",
+      "cta_href": "contact.html#quote"
+    },
+    "team": {
+      "file": "team.html",
+      "title": "Meet the Team | Phoenix Restoration LLC",
+      "description": "Jessy Jeter owns Phoenix Restoration LLC, a disabled veteran-owned remodeler in Verbena. Eve Harper handles scheduling and client messages.",
+      "canonical": "https://phoenixrestoration.net/team.html",
+      "schema_description": "Disabled veteran-owned remodeler based in Verbena, Alabama. Bathrooms, paint, decks, roofs, and floors across 10 counties.",
+      "cta_id": "cta-team",
+      "cta_href": "contact.html#quote"
+    },
+    "area": {
+      "file": "area.html",
+      "title": "Service Area — 10 Alabama Counties | Phoenix Restoration LLC",
+      "description": "We cover 10 Alabama counties from Verbena — Chilton, Autauga, Elmore, Shelby, Bibb, Coosa, Dallas, Perry, Lowndes, and Montgomery.",
+      "canonical": "https://phoenixrestoration.net/area.html",
+      "schema_description": "Disabled veteran-owned remodeler based in Verbena, Alabama. Bathrooms, paint, decks, roofs, and floors across 10 counties.",
+      "cta_id": "cta-area",
+      "cta_href": "contact.html#quote"
+    },
+    "contact": {
+      "file": "contact.html",
+      "title": "Request a Quote | Phoenix Restoration LLC",
+      "description": "Request a renovation or rebuild quote from Phoenix Restoration LLC in Verbena. We cover Elmore County, Chilton County, and eight more Central Alabama counties. Call (334) 327-7450. We reply within 1 business day.",
+      "canonical": "https://phoenixrestoration.net/contact.html",
+      "schema_description": "Disabled veteran-owned residential renovation and rebuild company based in Verbena, Alabama. Kitchens, baths, flooring, decking, and full rebuilds across Elmore County, Chilton County, and eight more Central Alabama counties.",
+      "cta_id": "cta-contact",
+      "cta_href": "#quote"
+    }
+  },
+  "dns_plan": {
+    "domain": "phoenixrestoration.net",
+    "preserve_mx": true,
+    "changes": [
+      {
+        "host": "@",
+        "type": "A_or_CNAME",
+        "value": "Cloudflare Pages for project phoenixrestoration-net"
+      },
+      {
+        "host": "www",
+        "type": "CNAME",
+        "value": "phoenixrestoration-net.pages.dev"
+      }
+    ]
+  },
+  "live_urls": [
+    "https://phoenixrestoration-net.pages.dev",
+    "https://www.phoenixrestoration.net",
+    "https://phoenixrestoration.net"
+  ]
+}

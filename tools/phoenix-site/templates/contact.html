@@ -1,0 +1,131 @@
+    <div class="wrap page-hero">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li aria-current="page">Contact</li>
+      </ol>
+    </nav>
+
+      <p class="eyebrow">Contact</p>
+      <h1>Request a quote.</h1>
+      <p class="lead">Tell us about the house. We reply within 1 business day. You can also call {{ phone_display }}. We renovate and rebuild homes in Elmore County, Chilton County, and the rest of our Central Alabama service area.</p>
+    </div>
+    <section class="section" aria-label="Contact details and form">
+      <div class="wrap contact-layout">
+        <div>
+          <div class="contact-block">
+            <h2>Reach us</h2>
+            <ul class="contact-list">
+              {{#has_phone}}
+              <li>
+                <span class="contact-label">Phone</span>
+                <a href="tel:{{ phone_tel }}">{{ phone_display }}</a>
+              </li>
+              {{/has_phone}}
+              <li>
+                <span class="contact-label">Email</span>
+                <a href="mailto:{{ email }}">{{ email }}</a>
+              </li>
+              <li>
+                <span class="contact-label">Facebook</span>
+                <a href="{{ facebook }}" rel="noopener noreferrer">Phoenix Restoration</a>
+              </li>
+              <li>
+                <span class="contact-label">Based in</span>
+                {{ business_name }}<br>
+                Verbena, Chilton County, Alabama
+              </li>
+            </ul>
+          </div>
+          <div class="contact-block">
+            <h2>Hours (Central Time)</h2>
+            <ul class="hours-list">
+              <li><span>Monday – Friday</span><span>8:00 AM – 5:00 PM</span></li>
+              <li><span>Saturday – Sunday</span><span>By appointment</span></li>
+            </ul>
+          </div>
+          <div class="contact-block">
+            <h2>Counties we cover</h2>
+            <ul class="county-mini">
+              {{#counties}}
+              <li><a href="area.html#{{ id }}">{{ short }}</a></li>
+              {{/counties}}
+            </ul>
+            <p class="fine-print">County-wide in each. <a href="area.html">See towns and notes</a>.</p>
+          </div>
+          <div class="callout">
+            <p><strong>Payment.</strong> {{ payment }}</p>
+          </div>
+        </div>
+
+        <div class="form-card" id="quote">
+          <h2>Request a quote</h2>
+          <p class="form-note" id="form-note">Kitchens, baths, flooring, decking, full rebuilds, and storm or insurance jobs in Elmore County, Chilton County, and our other Central Alabama counties. We reply within 1 business day. Prefer the phone? Call <a href="tel:{{ phone_tel }}">{{ phone_display }}</a>.</p>
+          <div id="quote-thanks" class="quote-thanks" hidden>
+            <h2 tabindex="-1">Thank you.</h2>
+            <p>We received your quote request and will reply within 1 business day.</p>
+            <p>If you need us sooner, call <a href="tel:{{ phone_tel }}">{{ phone_display }}</a>.</p>
+          </div>
+          <form id="quote-form" action="/api/quote" method="post" aria-describedby="form-note">
+            <div class="hp-field" aria-hidden="true">
+              <label for="company_website">Company website</label>
+              <input id="company_website" name="company_website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="name">Name <span class="req">(required)</span></label>
+              <input id="name" name="name" type="text" autocomplete="name" required maxlength="80">
+            </div>
+            <div class="field">
+              <label for="phone">Phone <span class="req">(required)</span></label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="30">
+            </div>
+            <div class="field">
+              <label for="email">Email <span class="req">(required)</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120">
+            </div>
+            <div class="field">
+              <label for="address">Job address or town <span class="req">(required)</span></label>
+              <input id="address" name="address" type="text" autocomplete="street-address" required maxlength="160" placeholder="Street, town, or county">
+            </div>
+            <div class="field">
+              <label for="work_type">Type of work <span class="req">(required)</span></label>
+              <select id="work_type" name="work_type" required>
+                <option value="" selected disabled>Select the work</option>
+                <option value="kitchen">Kitchen</option>
+                <option value="bath">Bath</option>
+                <option value="flooring">Flooring</option>
+                <option value="decking">Decking</option>
+                <option value="full-rebuild">Full rebuild</option>
+                <option value="insurance-storm">Insurance / storm</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="description">Description <span class="req">(required)</span></label>
+              <textarea id="description" name="description" required maxlength="4000"></textarea>
+            </div>
+            <div class="field">
+              <label for="contact_time">Preferred contact time <span class="req">(required)</span></label>
+              <select id="contact_time" name="contact_time" required>
+                <option value="" selected disabled>When should we reach you?</option>
+                <option value="morning">Morning (8 AM–noon)</option>
+                <option value="afternoon">Afternoon (noon–5 PM)</option>
+                <option value="evening">Evening (after 5 PM)</option>
+                <option value="anytime">Anytime</option>
+              </select>
+            </div>
+            <div id="turnstile-slot"></div>
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Request a quote</button>
+              {{#has_phone}}
+              <a class="btn btn-secondary" href="tel:{{ phone_tel }}">Call {{ phone_display }}</a>
+              {{/has_phone}}
+            </div>
+            <p class="form-status" id="quote-status" role="alert" aria-live="assertive"></p>
+          </form>
+          <noscript>
+            <p class="form-note">JavaScript is off, so this form can't send. Call <a href="tel:{{ phone_tel }}">{{ phone_display }}</a> or email <a href="mailto:{{ email }}">{{ email }}</a>.</p>
+          </noscript>
+        </div>
+      </div>
+    </section>
