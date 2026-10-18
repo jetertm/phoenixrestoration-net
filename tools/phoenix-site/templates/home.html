@@ -1,0 +1,139 @@
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">{{ hero_eyebrow }}</p>
+          <h1 id="hero-heading">{{ hero_heading }}</h1>
+          <p class="hero-lead">{{ hero_lead }}</p>
+          <div class="cta-row">
+            {{#has_phone}}
+            <a class="btn btn-primary" href="tel:{{ phone_tel }}">{{{ phone_svg }}}Call {{ phone_display }}</a>
+            {{/has_phone}}
+            <a class="btn btn-secondary" href="contact.html#quote">{{ cta.button }}</a>
+          </div>
+          <ul class="trust-row">
+            {{#trust}}
+            <li>{{ value }}</li>
+            {{/trust}}
+          </ul>
+        </div>
+        <figure class="hero-photo">
+          <img src="{{ hero.src }}" width="{{ hero.width }}" height="{{ hero.height }}" alt="{{ hero.alt }}">
+          <figcaption>{{ hero.caption }}</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="fact-bar" aria-label="Contact at a glance">
+      <div class="wrap fact-grid">
+        {{#has_phone}}
+        <div>
+          <span>Phone</span>
+          <a href="tel:{{ phone_tel }}">{{ phone_display }}</a>
+        </div>
+        {{/has_phone}}
+        <div>
+          <span>Email</span>
+          <a href="mailto:{{ email }}">{{ email }}</a>
+        </div>
+        <div>
+          <span>Hours</span>
+          <strong>Mon–Fri 8–5 CT</strong>
+        </div>
+        <div>
+          <span>Based in</span>
+          <strong>{{ locality }}, AL</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="services-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="services-heading">What we remodel</h2>
+          <p>{{ services_intro }}</p>
+        </div>
+        <ul class="services-grid">
+          {{#services}}
+          <li><a class="service-card" href="services.html#{{ id }}">{{{ icon_svg }}}<h3>{{ name }}</h3><p>{{ summary }}</p></a></li>
+          {{/services}}
+        </ul>
+        <p class="more-link"><a href="services.html">All the services</a></p>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="recent-work-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="recent-work-heading">Recent work</h2>
+          <p>Before and after from residential renovation and rebuild jobs. We work in Elmore County, Chilton County, and the rest of our Central Alabama service area. A town is shown only when we have it on file.</p>
+        </div>
+        <div id="recent-work" class="recent-work" data-jobs="assets/recent-work/jobs.json"></div>
+        <noscript>
+          <div class="recent-work">
+            <article class="job-card">
+              <h3>Deck build</h3>
+              <p class="job-meta">Decking</p>
+              <div class="pair">
+                <figure>
+                  <img src="assets/from-drive/chuck-deck-01.jpg" width="960" height="720" alt="Deck framing in progress, with joists and posts set and the finish boards not yet installed">
+                  <figcaption>Before</figcaption>
+                </figure>
+                <figure>
+                  <img src="assets/from-drive/chuck-deck-02.jpg" width="960" height="720" alt="Finished deck with boards, metal railings, and stairs">
+                  <figcaption>After</figcaption>
+                </figure>
+              </div>
+            </article>
+          </div>
+        </noscript>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="gallery-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="gallery-heading">More project photos</h2>
+          <p>Real jobs we've done.</p>
+        </div>
+        <div class="gallery">
+          {{#gallery_public}}
+          <figure class="shot">
+            <img src="{{ src }}" width="{{ width }}" height="{{ height }}" alt="{{ alt }}" loading="lazy">
+            <figcaption>{{ caption }}</figcaption>
+          </figure>
+          {{/gallery_public}}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="area-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="area-heading">Ten counties, from Verbena</h2>
+          <p>County-wide from Verbena. Clanton, Marbury, Jemison, Thorsby, Maplesville, Prattville, Selma, and the towns around them are in that area.</p>
+        </div>
+        <ul class="area-list">
+          {{#counties}}
+          <li><a href="area.html#{{ id }}">{{ name }}</a></li>
+          {{/counties}}
+        </ul>
+        <p class="area-note">We're based in Verbena and work county-wide in Elmore, Chilton, and eight more Central Alabama counties. Not sure about your address? <a href="contact.html#quote">{{ cta.button }}</a> and we'll tell you straight.</p>
+        <p class="more-link"><a href="area.html">Full service-area list</a></p>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="how-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="how-heading">How a project starts</h2>
+          <p>Call, we come look, we agree on the work, then we get it done.</p>
+        </div>
+        <ol class="steps">
+          <li><span class="step-num">01</span><h3>You reach out</h3><p>Call, email, or <a href="contact.html#quote">request a quote</a> with the job and your county.</p></li>
+          <li><span class="step-num">02</span><h3>We look</h3><p>We walk the house and talk it through.</p></li>
+          <li><span class="step-num">03</span><h3>Clear scope</h3><p>You know what's included. {{ payment }}</p></li>
+          <li><span class="step-num">04</span><h3>We do the work</h3><p>We schedule it and finish it. Weekends by appointment.</p></li>
+        </ol>
+        <p class="more-link"><a href="about.html">A little more about us</a> · <a href="team.html">Meet the team</a></p>
+      </div>
+    </section>

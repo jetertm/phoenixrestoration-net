@@ -1,0 +1,25 @@
+[project]
+name = "phoenix-site"
+version = "1.0.0"
+description = "Build and check the Phoenix Restoration LLC website"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["pillow"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+phoenix-site = "phoenix_site.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["phoenix_site*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-m 'not live'"
+markers = [
+  "live: contacts DNS or the live website",
+]

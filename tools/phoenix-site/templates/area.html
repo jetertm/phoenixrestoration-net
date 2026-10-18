@@ -1,0 +1,28 @@
+    <div class="wrap page-hero">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li aria-current="page">Service area</li>
+      </ol>
+    </nav>
+
+      <p class="eyebrow">Service area</p>
+      <h1>Ten counties, served from Verbena.</h1>
+      <p class="lead">We cover these ten counties from Verbena. Towns listed are examples, not offices.</p>
+    </div>
+    <section class="section" aria-labelledby="counties-heading">
+      <div class="wrap">
+        <h2 id="counties-heading" class="visually-hidden">Counties we serve</h2>
+        <ul class="county-grid">
+        {{#counties}}
+        <li class="county-card" id="{{ id }}">
+          <span class="{{ badge_class }}">{{ badge }}</span>
+          <h2>{{ name }}</h2>
+          <p>{{ blurb }}</p>
+        </li>
+        {{/counties}}
+        </ul>
+        <p class="area-note">Outside these ten, call first and we'll tell you if we can make it.</p>
+        <p class="more-link"><a href="contact.html#quote">{{ cta.button }}</a></p>
+      </div>
+    </section>
