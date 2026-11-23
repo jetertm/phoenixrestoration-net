@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://phoenixrestoration.net/sitemap.xml
+Sitemap: https://www.phoenixrestoration.net/sitemap.xml
