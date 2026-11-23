@@ -10,7 +10,7 @@ import {
 
 const API_KEY = "am_test_key";
 const INBOX = "phoenix-leads@agentmail.to";
-const LEAD_TO = "eve-phoenix@mail.grokbot.com";
+const LEAD_TO = "info@phoenixrestoration.net";
 const SEND_URL = `https://api.agentmail.to/v0/inboxes/${encodeURIComponent(INBOX)}/messages/send`;
 
 function env(overrides = {}) {
@@ -133,16 +133,25 @@ test("a valid quote posts to AgentMail with the visitor as reply_to", async () =
 
 test("a non-2xx AgentMail response is an error and does not thank the visitor", async () => {
   const calls = [];
-  const response = await handleQuote(
-    requestFor(quoteForm()),
-    env(),
-    mockFetch({ calls, mailStatus: 500 }),
-  );
-  const body = await response.json();
-  assert.equal(response.status, 502);
-  assert.equal(body.ok, false);
-  assert.match(body.message, /couldn't send/i);
-  assert.equal(mailCalls(calls).length, 1);
+  const errors = [];
+  const original = console.error;
+  console.error = (line) => errors.push(String(line));
+  try {
+    const response = await handleQuote(
+      requestFor(quoteForm()),
+      env(),
+      mockFetch({ calls, mailStatus: 500 }),
+    );
+    const body = await response.json();
+    assert.equal(response.status, 502);
+    assert.equal(body.ok, false);
+    assert.match(body.message, /couldn't send/i);
+    assert.equal(mailCalls(calls).length, 1);
+    assert.match(errors.join("\n"), /"event":"quote_email_failed"/);
+    assert.match(errors.join("\n"), /"status":500/);
+  } finally {
+    console.error = original;
+  }
 });
 
 test("a network failure talking to AgentMail is an error", async () => {
@@ -155,19 +164,29 @@ test("a network failure talking to AgentMail is an error", async () => {
 });
 
 test("missing AgentMail settings fail closed and do not send", async () => {
-  for (const overrides of [
-    { AGENTMAIL_API_KEY: "" },
-    { LEAD_FROM_INBOX: "" },
-    { LEAD_TO: "" },
-  ]) {
-    const calls = [];
-    const response = await handleQuote(
-      requestFor(quoteForm()),
-      env(overrides),
-      mockFetch({ calls }),
-    );
-    assert.equal(response.status, 503);
-    assert.equal(mailCalls(calls).length, 0);
+  const errors = [];
+  const original = console.error;
+  console.error = (line) => errors.push(String(line));
+  try {
+    for (const overrides of [
+      { AGENTMAIL_API_KEY: "" },
+      { LEAD_FROM_INBOX: "" },
+      { LEAD_TO: "" },
+    ]) {
+      const calls = [];
+      const response = await handleQuote(
+        requestFor(quoteForm()),
+        env(overrides),
+        mockFetch({ calls }),
+      );
+      assert.equal(response.status, 503);
+      assert.equal(mailCalls(calls).length, 0);
+    }
+    assert.match(errors[0], /"hasKey":false/);
+    assert.match(errors[1], /"hasInbox":false/);
+    assert.match(errors[2], /"hasTo":false/);
+  } finally {
+    console.error = original;
   }
 });
 

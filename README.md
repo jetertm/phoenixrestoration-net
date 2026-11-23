@@ -33,7 +33,7 @@ Click through **Home → Services → About → Team → Service area → Contac
 | `assets/recent-work/jobs.json` | Before/after jobs for the home page |
 | `assets/` | Logo files and project photos |
 
-The contact page has a **Request a quote** form. It posts to the Pages Function at `/api/quote`, which sends the lead through AgentMail to `eve-phoenix@mail.grokbot.com`. The public address `info@phoenixrestoration.net` stays on the page for people who want to write directly. With JavaScript off, the form cannot send; the page tells the visitor to call or email.
+The contact page has a **Request a quote** form. It posts to the Pages Function at `/api/quote`, which sends the lead through AgentMail to `info@phoenixrestoration.net`. That address stays on the page for people who want to write directly. With JavaScript off, the form cannot send; the page tells the visitor to call or email.
 
 ## What changed from the one-pager
 
@@ -72,14 +72,14 @@ Project: **phoenixrestoration-net**. Set these for Production and Preview. `LEAD
 | --- | --- | --- |
 | Secret (encrypt) | `AGENTMAIL_API_KEY` | AgentMail API key for the leads inbox |
 | Plain variable | `LEAD_FROM_INBOX` | `phoenix-leads@agentmail.to` |
-| Plain variable | `LEAD_TO` | `eve-phoenix@mail.grokbot.com` |
+| Plain variable | `LEAD_TO` | `info@phoenixrestoration.net` |
 | Plain variable | `TURNSTILE_HOSTNAMES` | `phoenixrestoration.net,www.phoenixrestoration.net,phoenixrestoration-net.pages.dev` |
-| Plain variable | `TURNSTILE_SITE_KEY` | Public Turnstile sitekey from the widget step |
+| Plain variable | `TURNSTILE_SITE_KEY` | `0x4AAAAAAFX_kSSDb1epnI3G` (also in `wrangler.toml`) |
 | Secret (encrypt) | `TURNSTILE_SECRET` | Turnstile secret key. Never commit it. |
 
-The function POSTs to `https://api.agentmail.to/v0/inboxes/phoenix-leads@agentmail.to/messages/send` with `Authorization: Bearer` and JSON `to`, `reply_to`, `subject`, `text`, and `html`. `reply_to` is the visitor's email. The subject is `New quote request: <name> - <type> - <town>`. A non-2xx response is treated as a failure and the visitor is asked to call.
+The function POSTs to `https://api.agentmail.to/v0/inboxes/phoenix-leads@agentmail.to/messages/send` with `Authorization: Bearer` and JSON `to`, `reply_to`, `subject`, `text`, and `html`. `to` comes from `LEAD_TO`. `reply_to` is the visitor's email. The subject is `New quote request: <name> - <type> - <town>`. A non-2xx response is treated as a failure, logged with `console.error`, and the visitor is asked to call. Missing `AGENTMAIL_API_KEY`, `LEAD_FROM_INBOX`, or `LEAD_TO` also logs and returns 503. The visitor is not thanked unless AgentMail accepts the message.
 
-`TURNSTILE_SITE_KEY` is public. Add it under `[vars]` in `wrangler.toml` when you have it, because a deploy that applies this file can replace dashboard variables. Do not add `localhost` or `127.0.0.1` to the production Turnstile hostname list.
+`TURNSTILE_SITE_KEY` is public and is set under `[vars]` in `wrangler.toml`. A deploy that applies this file can replace dashboard plain variables, so keep that sitekey in the file. Do not add `localhost` or `127.0.0.1` to the production Turnstile hostname list. Secrets (`AGENTMAIL_API_KEY`, `TURNSTILE_SECRET`) stay in the dashboard.
 
 The handler rejects Cloudflare’s public testing secret on every hostname except `localhost` and `127.0.0.1`. On those two hosts, the documented testing keys are accepted even though Siteverify reports hostname `example.com` and omits the action. A real widget still has to match action `quote` and the request hostname.
 
