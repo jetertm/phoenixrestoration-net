@@ -15,9 +15,3 @@ TURNSTILE_HOSTNAMES = "phoenixrestoration.net,www.phoenixrestoration.net,phoenix
 TURNSTILE_SITE_KEY = "0x4AAAAAAFX_kSSDb1epnI3G"
 
 # AGENTMAIL_API_KEY is a Pages secret. Do not put it in this file.
-
-[observability]
-enabled = true
-
-[observability.traces]
-enabled = true
